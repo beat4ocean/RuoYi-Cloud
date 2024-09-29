@@ -14,9 +14,11 @@ import com.ruoyi.system.api.domain.SysUser;
 import com.ruoyi.system.api.factory.RemoteUserFallbackFactory;
 import com.ruoyi.system.api.model.LoginUser;
 
+import java.util.List;
+
 /**
  * 用户服务
- * 
+ *
  * @author ruoyi
  */
 @FeignClient(contextId = "remoteUserService", value = ServiceNameConstants.SYSTEM_SERVICE, fallbackFactory = RemoteUserFallbackFactory.class)
@@ -51,4 +53,21 @@ public interface RemoteUserService
      */
     @PutMapping("/user/recordlogin")
     public R<Boolean> recordUserLogin(@RequestBody SysUser sysUser, @RequestHeader(SecurityConstants.FROM_SOURCE) String source);
+
+    /**
+     * 通过用户id查询用户信息
+     * @param userId
+     * @param source
+     * @return
+     */
+    @GetMapping("/user/infoById/{userId}")
+    public R<SysUser> getUserInfoById(@PathVariable("userId") Long userId, @RequestHeader(SecurityConstants.FROM_SOURCE) String source);
+
+    /**
+     * 获取所有用户信息
+     * @param source
+     * @return
+     */
+    @GetMapping("/user/selectList")
+    public R<List<SysUser>> selectList(@RequestHeader(SecurityConstants.FROM_SOURCE) String source);
 }

@@ -10,6 +10,7 @@
 
     <modules>
         <module>ruoyi-api-system</module>
+        <module>ruoyi-api-dolphinscheduler</module>
     </modules>
 
     <artifactId>ruoyi-api</artifactId>

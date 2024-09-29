@@ -1,0 +1,2 @@
+com.ruoyi.common.translation.config.TranslationConfig
+com.ruoyi.common.translation.core.impl.UserNameTranslationImpl
